@@ -217,6 +217,8 @@ public class BattleSystem : MonoBehaviour
         if (isDead)
         {
             CheckIfEnemiesStillLeft();
+            yield return new WaitForSeconds(2f);
+            EnemyTurn();
         }
         else
         {
@@ -392,7 +394,6 @@ public class BattleSystem : MonoBehaviour
                 state = BattleState.ENEMYTURN;
             }
         }
-        EnemyTurn();
     }
 
     IEnumerator EnemyAttackDuringTurn()
